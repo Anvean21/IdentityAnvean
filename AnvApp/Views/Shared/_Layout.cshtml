@@ -26,15 +26,17 @@
                     <li>
                         @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "active", style = "text-decoration: none" })
                     </li>
-                    <li class = "navbar-text">@User.Identity.Name</li>
-                        
+                    
+                    <li>
+                        @Html.ActionLink(User.Identity.Name, "Edit", "Account", null, new { @class = "active", style = "text-decoration: none" })
+                    </li>
                     }
                     else
                     {
                             <li>
                             @Html.ActionLink("Login", "Login", "Account", null, new { @class = "active", style = "text-decoration: none" })
                             </li>
-                            <li>@Html.ActionLink("Регистрация", "Register", "Account")</li>
+                            <li>@Html.ActionLink("Registration", "Register", "Account")</li>
                     }
                     
 

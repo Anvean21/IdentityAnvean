@@ -128,10 +128,10 @@ namespace AnvApp.Controllers
             ApplicationUser user = await UserManager.FindByEmailAsync(User.Identity.Name);
             if (user != null)
             {
-                EditModel model = new EditModel { Year = user.Year };
+                EditModel model = new EditModel { Year = user.Year, Nickname = user.Nickname };
                 return View(model);
             }
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -141,6 +141,7 @@ namespace AnvApp.Controllers
             if (user != null)
             {
                 user.Year = model.Year;
+                user.Nickname = model.Nickname;
                 IdentityResult result = await UserManager.UpdateAsync(user);
                 if (result.Succeeded)
                 {
