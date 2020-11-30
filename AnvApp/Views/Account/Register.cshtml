@@ -5,56 +5,47 @@
     ViewBag.Title = "Register";
 }
 
-<h2>Регистрация</h2>
+<h2>@ViewBag.Title.</h2>
 
-
-@using (Html.BeginForm())
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-
-<div>
-    <h4>Регистрация пользователя</h4>
+    <h4>Create a new account.</h4>
     <hr />
-    @Html.ValidationSummary(false)
-
-    <div>
-        Электронный адрес
-        <div>
-            @Html.EditorFor(model => model.Email)
+    @Html.ValidationSummary()
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
         </div>
     </div>
-    <div>
-        Имя пользователя
-        <div>
-            @Html.EditorFor(model => model.Nickname)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Nickname, new { @class = "col-md-2 control-label" })
+        <div class="col-md-5">
+            @Html.PasswordFor(m => m.Nickname, new { @class = "form-control" })
         </div>
     </div>
-
-    <div>
-        Год рождения
-        <div>
-            @Html.EditorFor(model => model.Year)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Year, new { @class = "col-md-2 control-label" })
+        <div class="col-md-5">
+            @Html.PasswordFor(m => m.Year, new { @class = "form-control" })
         </div>
     </div>
-
-    <div>
-        Пароль
-        <div>
-            @Html.EditorFor(model => model.Password)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
         </div>
     </div>
-
-    <div>
-        Подтвердить пароль
-        <div>
-            @Html.EditorFor(model => model.PasswordConfirm)
+    <div class="form-group">
+        @Html.LabelFor(m => m.PasswordConfirm, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.PasswordConfirm, new { @class = "form-control" })
         </div>
     </div>
-
-    <div>
-        <div>
-            <input type="submit" value="Зарегистрировать" />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-success" value="Register" />
         </div>
     </div>
-</div>
 }

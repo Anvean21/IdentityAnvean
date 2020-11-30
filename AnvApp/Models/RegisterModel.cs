@@ -13,6 +13,7 @@ namespace AnvApp.Models
         [Required]
         public string Nickname { get; set; }
         [Required]
+        [Display(Name = "Age")]
         public int Year { get; set; }
 
         [Required]

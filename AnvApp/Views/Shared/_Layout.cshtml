@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -17,23 +17,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Anvean", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     @if (Request.IsAuthenticated)
                     {
-                    <li class="navbar-text">
-                        @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "navbar-text", style = "text-decoration: none" })
-
-                        @User.Identity.Name
-
+                    <li>
+                        @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "active", style = "text-decoration: none" })
                     </li>
+                    <li class = "navbar-text">@User.Identity.Name</li>
                         
                     }
                     else
                     {
-                            <li class="navbar-text">
+                            <li>
                             @Html.ActionLink("Login", "Login", "Account", null, new { @class = "active", style = "text-decoration: none" })
                             </li>
                             <li>@Html.ActionLink("Регистрация", "Register", "Account")</li>
@@ -41,8 +39,6 @@
                     
 
                     <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Информация", "About", "Home")</li>
-                    <li>@Html.ActionLink("Связаться", "Contact", "Home")</li>
                 </ul>
             </div>
         </div>
